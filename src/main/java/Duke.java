@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 public class Duke {
 
-    private static void addToList(String cmd, ArrayList<String> list) {
+    private static ArrayList<String> list = new ArrayList<>();
+    private static void addToList(String cmd) {
         list.add(cmd);
         System.out.println("added: " + cmd);
     }
@@ -16,14 +17,12 @@ public class Duke {
                 + "| |_| | |_| |   <  __/\n"
                 + "|____/ \\__,_|_|\\_\\___|\n";
         System.out.println("Hello from\n" + logo);
-
  */
         String cmd;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Hello! I'm Duke");
         System.out.println("What can I do for you?");
 
-        ArrayList<String> list = new ArrayList<>();
         while(true) {
             cmd = scanner.nextLine();
             if (cmd.equals("bye")) {
@@ -34,7 +33,7 @@ public class Duke {
                     System.out.println((i + 1) + ". " + list.get(i));
                 }
             } else {
-                addToList(cmd, list);
+                addToList(cmd);
             }
         }
     }
