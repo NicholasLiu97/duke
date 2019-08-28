@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.SortedMap;
 
 public class Duke {
 
@@ -58,6 +57,28 @@ public class Duke {
         System.out.println(" [" + currTask.getStatusIcon() + "] " + currTask.description);
     }
 
+    private static Boolean isValidInput(String[] words) {
+        if (words.length == 1) {
+            if (words[0].equals("todo")) {
+                System.out.println("☹ OOPS!!! The description of a todo cannot be empty.");
+            } else if (words[0].equals("deadline")) {
+                System.out.println("☹ OOPS!!! The description of a deadline cannot be empty.");
+            } else if (words[0].equals("event")){
+                System.out.println("☹ OOPS!!! The description of an event cannot be empty.");
+            } else {
+                System.out.println(" ☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
+            }
+            return false;
+        } else {
+            if (!words[0].equals("todo") && !words[0].equals("deadline") && !words[0].equals("event")) {
+                System.out.println(" ☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
+                return false;
+            }
+        }
+        return true;
+
+    }
+
     public static void main(String[] args) {
 /*
         String logo = " ____        _        \n"
@@ -82,6 +103,10 @@ public class Duke {
             } else { //either done a task or add a task
                 String[] words = cmd.split(" ");
                 String instr = words[0];
+                if (!isValidInput(words)) {
+                    continue;
+                }
+
                 if (instr.equals("done")) { //done with a task
                     markAsDone(words[1]);
                 } else { //adding task to list
