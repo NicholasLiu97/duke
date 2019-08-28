@@ -70,13 +70,14 @@ public class Duke {
             }
             return false;
         } else {
-            if (!words[0].equals("todo") && !words[0].equals("deadline") && !words[0].equals("event")) {
+            if (words[0].equals("done")) {
+                return true;
+            } else if (!words[0].equals("todo") && !words[0].equals("deadline") && !words[0].equals("event")) {
                 System.out.println(" ☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
                 return false;
             }
         }
         return true;
-
     }
 
     public static void main(String[] args) {
