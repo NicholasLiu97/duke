@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.SortedMap;
 
 public class Duke {
 
@@ -8,13 +9,45 @@ public class Duke {
     private static void showList() {
         for (int i = 0; i < list.size(); i++) {
             Task currTask = list.get(i);
-            System.out.println((i+1) + ".[" + currTask.getStatusIcon() + "] " + currTask.description);
+//            System.out.println((i+1) + ".[" + currTask.getStatusIcon() + "] " + currTask.description);
+            System.out.println((i+1) + "." + currTask.toString());
         }
     }
     private static void addToList(String cmd) {
-        Task newTask = new Task(cmd);
-        list.add(newTask);
-        System.out.println("added: " + cmd);
+        String[] words = cmd.split(" ");
+        String instr = words[0];
+        String toReplace = instr + " ";
+        String finalCmd = cmd.replaceAll(toReplace, "");
+
+        if (instr.equals("deadline")) {
+            String[] deadlineWords = finalCmd.split(" /by ");
+            Deadline newDeadline = new Deadline(deadlineWords[0], deadlineWords[1]);
+            list.add(newDeadline);
+            System.out.println("Got it. I've added this task:");
+            System.out.println("    " + newDeadline.toString());
+            System.out.println("Now you have " + list.size() + " tasks in the list.");
+        } else if (instr.equals("event")) {
+            String[] eventWords = finalCmd.split(" /at ");
+            Event newEvent = new Event(eventWords[0], eventWords[1]);
+            list.add(newEvent);
+            System.out.println("Got it. I've added this task:");
+            System.out.println("    " + newEvent.toString());
+            System.out.println("Now you have " + list.size() + " tasks in the list.");
+        } else if (instr.equals("todo")) {
+            Todo newToDo = new Todo(finalCmd);
+            list.add(newToDo);
+            System.out.println("Got it. I've added this task:");
+            System.out.println("    " + newToDo.toString());
+            System.out.println("Now you have " + list.size() + " tasks in the list.");
+        } else {
+        //default as Todo if inaccurate input
+            Todo newToDo = new Todo(cmd);
+            list.add(newToDo);
+//            System.out.println("added: " + cmd);
+            System.out.println("Got it. I've added this task:");
+            System.out.println("    " + newToDo.toString());
+            System.out.println("Now you have " + list.size() + " tasks in the list.");
+        }
     }
 
     private static void markAsDone(String taskNumber) {
@@ -48,7 +81,8 @@ public class Duke {
                 showList();
             } else { //either done a task or add a task
                 String[] words = cmd.split(" ");
-                if (words[0].equals("done")) { //done with a task
+                String instr = words[0];
+                if (instr.equals("done")) { //done with a task
                     markAsDone(words[1]);
                 } else { //adding task to list
                     addToList(cmd);

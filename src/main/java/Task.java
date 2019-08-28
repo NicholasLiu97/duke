@@ -13,4 +13,8 @@ public class Task {
         }
         return "\u2718";
     }
+
+    public String toString() {
+        return "[" + this.getStatusIcon() + "] " + this.description;
+    }
 }
