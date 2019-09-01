@@ -17,4 +17,14 @@ public class Task {
     public String toString() {
         return "[" + this.getStatusIcon() + "] " + this.description;
     }
+
+    public String writeToFile() {
+        String checkBox = "0";
+        if (this.isDone) {
+            checkBox = "1";
+        }
+
+        return checkBox + " | " + this.description;
+    }
+
 }
