@@ -2,12 +2,16 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class Duke {
 
     private static ArrayList<Task> list = new ArrayList<>();
+    private static final String DATE_FORMAT = "dd/MM/yyyy HHmm";
 
     private static void showList() {
         System.out.println("number of tasks = " + list.size());
@@ -23,6 +27,8 @@ public class Duke {
         String instr = words[0];
         String toReplace = instr + " ";
         String finalCmd = cmd.replaceAll(toReplace, "");
+        Date date;
+
         try {
             if (instr.equals("deadline")) {
                 if (!finalCmd.contains("/by")) {
@@ -30,11 +36,18 @@ public class Duke {
                 }
 
                 String[] deadlineWords = finalCmd.split(" /by ");
-                Deadline newDeadline = new Deadline(deadlineWords[0], deadlineWords[1]);
-                list.add(newDeadline);
-                System.out.println("Got it. I've added this task:");
-                System.out.println("    " + newDeadline.toString());
-                System.out.println("Now you have " + list.size() + " tasks in the list.");
+//                date = new SimpleDateFormat(DATE_FORMAT).parse(deadlineWords[1]);
+                try {
+                    Deadline newDeadline = new Deadline(deadlineWords[0], deadlineWords[1]);
+                    //                Deadline newDeadline = new Deadline(deadlineWords[0], date);
+                    list.add(newDeadline);
+                    System.out.println("Got it. I've added this task:");
+                    System.out.println("    " + newDeadline.toString());
+                    System.out.println("Now you have " + list.size() + " tasks in the list.");
+                } catch (Exception e) {
+                    throw new DukeException("Please ensure date is in dd/mm/yyyy HHmm format");
+                }
+
             } else if (instr.equals("event")) {
                 if (!finalCmd.contains("/at")) {
                     throw new DukeException("Please use /at to specify location of the event");
@@ -118,7 +131,6 @@ public class Duke {
                 String line = scanner.nextLine();
                 String[] words = line.split(" \\| ");
 //                System.out.println(line);
-//                System.out.println("the task is: " + words[0]);
 
                 if (words[0].equals("T")) { //Todo
                     Todo newTodo = new Todo(words[2]);
@@ -127,11 +139,27 @@ public class Duke {
                     }
                     currList.add(newTodo);
                 } else if (words[0].equals("D")) { //deadline
-                    Deadline newDeadline = new Deadline(words[2], words[3]);
-                    if (words[1].equals("1")) {
-                        newDeadline.isDone = true;
+                    try {
+//                        Date deadlineDate = new SimpleDateFormat(DATE_FORMAT).parse(words[3]);
+
+                        Deadline newDeadline = new Deadline(words[2], words[3]);
+                        if (words[1].equals("1")) {
+                            newDeadline.isDone = true;
+                        }
+                        currList.add(newDeadline);
+                    } catch (Exception e) {
+                        System.out.println("Please change date to dd/mm/yyyy HHmm format, setting default date: " +
+                                "23/9/2019 1900");
+                        System.out.println("the date to change is " + words[3]);
+                        //throw new DukeException("date format in file is incorrect");
+                        Deadline newDeadline = new Deadline(words[2], "23/9/2019 1900");
+                        System.out.println("entered exception block");
+                        if (words[1].equals("1")) {
+                            newDeadline.isDone = true;
+                        }
+                        currList.add(newDeadline);
                     }
-                    currList.add(newDeadline);
+
                 } else { //event
                     Event newEvent = new Event(words[2], words[3]);
                     if (words[1].equals("1")) {
@@ -144,6 +172,7 @@ public class Duke {
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
         }
+
         return currList;
     }
 
@@ -172,7 +201,6 @@ public class Duke {
         File taskFile = new File("src/main/java/DukeTasks.txt");
 
         list =  getFileContents(taskFile);
-//        System.out.println("size of list after scanning file = " + list.size());
 
         String cmd;
         Scanner scanner = new Scanner(System.in);
