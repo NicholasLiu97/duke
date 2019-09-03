@@ -1,6 +1,6 @@
 T | 1 | go home
 T | 1 | apply for scholarship
-D | 0 | finish 2113T assignment | 30/9/2019 1900
+D | 1 | finish 2113T assignment | 30/9/2019 1900
 E | 1 | carnival | Marina Bay
 T | 0 | bathe
 D | 0 | this assignment | 30/10/2019 1800

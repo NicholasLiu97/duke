@@ -86,6 +86,20 @@ public class Duke {
         System.out.println(" [" + currTask.getStatusIcon() + "] " + currTask.description);
     }
 
+    private static void find(String toFind) {
+        ArrayList<Task> searchList = new ArrayList<>();
+        for (Task T : list) {
+            if (T.toString().contains(toFind)) {
+                searchList.add(T);
+            }
+        }
+
+        System.out.println("Here are the matching tasks in your list: ");
+        for (int i = 0; i < searchList.size(); i ++) {
+            System.out.println(i+1 + "." + searchList.get(i).toString());
+        }
+    }
+
     private static Boolean isValidInput(String[] words) {
         try {
             if (words.length == 1) { //only one word
@@ -95,13 +109,15 @@ public class Duke {
                     throw new DukeException("☹ OOPS!!! The description of a deadline cannot be empty.");
                 } else if (words[0].equals("event")){
                     throw new DukeException("☹ OOPS!!! The description of an event cannot be empty.");
+                } else if (words[0].equals("find")) {
+                    throw new DukeException("☹ OOPS!!! The description of a search cannot be empty.");
                 } else {
                     throw new DukeException(" ☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
                 }
 //                return false;
             } else { //more than one word
 //                try {
-                    if (words[0].equals("done")) {
+                    if (words[0].equals("done") || words[0].equals("find")) {
                         return true;
                     } else if (!words[0].equals("todo") && !words[0].equals("deadline") && !words[0].equals("event")) {
                         throw new DukeException(" ☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
@@ -225,6 +241,9 @@ public class Duke {
 
                 if (instr.equals("done")) { //done with a task
                     markAsDone(words[1]);
+                } else if (instr.equals("find")) {
+                    String toFind = cmd.replaceAll("find ", "");
+                    find(toFind);
                 } else { //adding task to list
                     addToList(cmd);
                 }
