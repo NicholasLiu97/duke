@@ -78,9 +78,18 @@ public class Duke {
         }
     }
 
+    private static void deleteFromList(String taskNumber) {
+        int index = Integer.parseInt(taskNumber) - 1;
+        Task taskToRemove = list.get(index);
+        list.remove(taskToRemove);
+        System.out.println("Noted. I've removed this task:");
+        System.out.println("  " + taskToRemove.toString());
+        System.out.println("Now you have " + list.size() + " tasks in the list.");
+    }
+
     private static void markAsDone(String taskNumber) {
-        int taskNum = Integer.parseInt(taskNumber);
-        Task currTask = list.get(taskNum - 1);
+        int taskNum = Integer.parseInt(taskNumber) - 1;
+        Task currTask = list.get(taskNum);
         currTask.isDone = true;
         System.out.println("Nice! I've marked this task as done:");
         System.out.println(" [" + currTask.getStatusIcon() + "] " + currTask.description);
@@ -95,29 +104,28 @@ public class Duke {
                     throw new DukeException("☹ OOPS!!! The description of a deadline cannot be empty.");
                 } else if (words[0].equals("event")){
                     throw new DukeException("☹ OOPS!!! The description of an event cannot be empty.");
+                } else if (words[0].equals("delete")) {
+                    throw new DukeException("☹ OOPS!!! Please specify which task to delete. ");
+                } else if (words[0].equals("done")) {
+                    throw new DukeException("☹ OOPS!!! Please specify which task to complete. ");
                 } else {
                     throw new DukeException(" ☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
                 }
 //                return false;
             } else { //more than one word
 //                try {
-                    if (words[0].equals("done")) {
+                    if (words[0].equals("done") || words[0].equals("delete")) {
                         return true;
                     } else if (!words[0].equals("todo") && !words[0].equals("deadline") && !words[0].equals("event")) {
                         throw new DukeException(" ☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
 //                        return false;
                     }
-//                } catch (DukeException e) {
-//                    System.out.println(e.getMessage());
-//                    return false;
-                }
+            }
 
- //           }
         } catch (DukeException e) {
             System.out.println(e.getMessage());
             return false;
         }
-
         return true;
     }
 
@@ -225,6 +233,13 @@ public class Duke {
 
                 if (instr.equals("done")) { //done with a task
                     markAsDone(words[1]);
+                } else if (instr.equals("delete"))  {
+                    try {
+                        deleteFromList(words[1]);
+                    } catch (Exception e) {
+                        System.out.println("Please specify a number from 1 to " + list.size());
+                    }
+
                 } else { //adding task to list
                     addToList(cmd);
                 }
