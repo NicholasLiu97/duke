@@ -23,8 +23,6 @@ public class Task {
         if (this.isDone) {
             checkBox = "1";
         }
-
         return checkBox + " | " + this.description;
     }
-
 }
