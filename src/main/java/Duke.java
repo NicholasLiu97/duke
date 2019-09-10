@@ -9,6 +9,48 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 
 public class Duke {
+    private Storage storage;
+    private TaskList tasks;
+    private Ui ui;
+
+    public Duke(String filePath) {
+        ui = new Ui();
+
+        try {
+            storage = new Storage(filePath);
+            tasks = new TaskList(storage.getFileContents());
+        } catch (DukeException DE) {
+            ui.showError(DE);
+//            tasks = new TaskList();
+        }
+    }
+
+    public void run() {
+        ui.greet();
+        boolean isExit = false;
+        while (!isExit) {
+            try {
+                String command = ui.readCommand();
+                ui.printLine();
+                Command c = Parser.parse(command);
+                c.execute(tasks, ui, storage);
+                isExit = c.isExit();
+            } catch (DukeException DE) {
+                ui.showError(DE);
+            } finally {
+                ui.printLine();
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        String filePath = "src/main/java/DukeTasks.txt";
+        new Duke(filePath).run();
+    }
+
+}
+/*
+public class Duke {
 
     private static ArrayList<Task> list = new ArrayList<>();
     private static final String DATE_FORMAT = "dd/MM/yyyy HHmm";
@@ -215,6 +257,10 @@ public class Duke {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
+
+
+
+ */
 /*
         String logo = " ____        _        \n"
                 + "|  _ \\ _   _| | _____ \n"
@@ -224,6 +270,7 @@ public class Duke {
         System.out.println("Hello from\n" + logo);
  */
 
+/*
         File taskFile = new File("src/main/java/DukeTasks.txt");
 
         list =  getFileContents(taskFile);
@@ -267,4 +314,4 @@ public class Duke {
         }
     }
 }
-
+*/
