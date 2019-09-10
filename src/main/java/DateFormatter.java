@@ -16,8 +16,11 @@ public class DateFormatter {
         this.date = date;
     }
 
-    public String toWords() {
+    public String toWords() throws DukeException {
         String[] split = this.date.split("\\/");
+        if (split.length != 3) {
+            throw new DukeException(" ☹ OOPS!!! Please change date format to dd/MM/yyyy HHmm");
+        }
         this.day = split[0];
         int dayInt = Integer.parseInt(this.day);
         if (dayInt == 11 || dayInt == 12 || dayInt == 13) {

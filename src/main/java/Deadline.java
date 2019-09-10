@@ -11,7 +11,12 @@ public class Deadline extends Task {
         this.by = by;
 
         DateFormatter deadlineDate =  new DateFormatter(this.by);
-        this.byWords = deadlineDate.toWords();
+        try {
+            this.byWords = deadlineDate.toWords();
+        } catch (DukeException DE) {
+            Ui ui = new Ui();
+            ui.showError(DE);
+        }
     }
 
     @Override
