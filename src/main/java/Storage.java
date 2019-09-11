@@ -5,9 +5,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * The storage class deals with loading tasks from the specified .txt file into
+ * the TaskList class and save tasks back into the .txt file when the program
+ * exits
+ */
+
 public class Storage {
 
     private File taskFile;
+
+    /**
+     * Constructor for Storage
+     * @param filePath specifies the file path of the file to be read
+     * @throws DukeException if file does not exist
+     */
     public Storage(String filePath) throws DukeException {
         this.taskFile = new File(filePath);
         if (!this.taskFile.exists()) {
@@ -15,6 +27,13 @@ public class Storage {
         }
     }
 
+    /**
+     * reads the contents from the taskFile, classifies them into deadline, to do
+     * or event, and adds them to an array list
+     * @return An array list of the Task class which contains all the tasks read
+     * from the file
+     * @throws DukeException if file does not exist
+     */
     public ArrayList<Task> getFileContents() throws DukeException {
         ArrayList<Task> list = new ArrayList<>();
 
@@ -56,6 +75,13 @@ public class Storage {
         return list;
     }
 
+    /**
+     * reads the list from the TaskList class and saves the tasks into the specified
+     * .txt file
+     * @param task contains the list of tasks that needs to be saved into the .txt
+     * file
+     * @throws DukeException
+     */
     public void writeFileContents(TaskList task) throws DukeException {
         try {
             FileWriter fw = new FileWriter(taskFile);
