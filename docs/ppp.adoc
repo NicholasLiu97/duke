@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 *Liu Wei Jie Nicholas* -- Project Portfolio for Optix
 
 ## About the project
@@ -8,4 +7,70 @@ We agreed on morphing it into a seat booking cum finance managing system for a v
 Optix, allows users like theatre managers to track seat booking of a show as well as the finances from the bookings.
 
 A snapshot of our product is as shown:
+
+image::images/UI.png[width ="600", align="center"]
+######  Figure 1: The Graphical User Interface for Optix
+
+My role was to implement the code for the commands dealing with the `finance` features. The following sections
+further elaborate on my enhancements as well as on my contributions to the user and developer guide.
+
+The following symbols are used in this document: +
+`view-profit` Grey highlighted components indicate that this is a command that can be entered into
+the command line of Optix.
+
+## Summary of contributions
+This sections summarizes my coding, documentation and other contributions made to the team's progress.
+
+### Enhancements added
+. Command to view the profit earned from a single show and from a particular month.
+
+.. What it does: The `view-profit` command allows the user to view the profit earned from selling the seats
+of one show. The `view-monthly` command allows the user to view monthly profits.
+
+.. Justification: The primary goal of businesses is to generate profit. The managers would want to view the
+profits earned from the shows so that they can calculate the returns from their business. Viewing the profits
+of the shows would also give the users like managers an idea of how popular this particular show is, and adopt
+policies to further increase their profits. For example, knowing that a particular show is constantly sold out,
+theatre managers can screen more of that show on other dates to raise the revenue earned. Knowing the profits
+earned every month would also allow the business to evaluate their current business strategy and make relevant
+improvements. Viewing the monthly profits would also allow the business to calculate the revenue earned from all
+shows in that month instead of adding the revenue from individual shows one by one.
+
+.. Highlights: This enhancement affects commands to be added in future, such as viewing profits for multiple
+shows or dates at once. The implementation was also challenging as much analysis and consideration need to be
+made to decide on the most appropriate date structure to retrieve the particular show from the list. This is
+crucial as other features also depend on this data structure which would affect the efficiency of the program.
+
+. Command to re-assign the seats of customers.
+
+.. Justification: Customers may have booked the wrong seat or mistakes might be made by the managing personnel
+when booking the seats. The `re-assign` command would also allow customers to upgrade or downgrade their seat
+since the prices of seats are based on the different tiers.
+
+.. Highlights: This enhancement goes hand-in-hand with other features and commands to be added in future. Refunding
+seats would require certain methods implemented by `re-assign` command. In addition, re-assign also implments certain
+features of other finance commands as the cost difference between the changed seats have to be accounted for.
+
+### *Code contributed*: Please click the link below to see a sample of my code:
+link:https://nuscs2113-ay1920s1.github.io/dashboard/#search=NicholasLiu97&sort=groupTitle&sortWithin=title&since=2019-09-21&timeframe=commit&mergegroup=false&groupSelect=groupByRepos&breakdown=false&tabOpen=true&tabType=authorship&tabAuthor=NicholasLiu97&tabRepo=AY1920S1-CS2113T-T12-1%2Fmain%5Bmaster%5D[Functional code]
+
+### Other contributions:
+* Project management:
+** There were a total of 3 releases, from version mid v1.1 to v1.3 as of current date. I managed releases versions
+1.2 and 1.3 (2 releases) on GitHub.
+** I was also in charge of ensuring that weekly increments were delivered on time.
+*Enhancements to existing features:
+** Wrote test cases to increase test coverage. (PR to be added)
+* Documentation:
+** Implemented the layout of the User Guide and Developer Guide on github.
+** Added further explanations to existing features for further clarification. (Done on google docs)
+** Made cosmetic improvements to the User Guide to make it more user-friendly.
+* Community:
+** Reviewed Pull Requests:
+** Offered suggestions to team members to refactor some parts of the code for tidier
+implementation.
+
+## Contributions to the User Guide
+
+
 
