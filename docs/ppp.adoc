@@ -1,0 +1,9 @@
+*Liu Wei Jie Nicholas* -- Project Portfolio for Optix
+
+## About the project
+My team is a group of 4 Computer Engineering Students. My team and I were tasked to  enhance a basic command line
+interface(CLI) desktop Duke application while retaining the CLI feature for our Software Engineering Project.
+We agreed on morphing it into a seat booking cum finance managing system for a venue such as a theatre. Our product,
+Optix, allows users like theatre managers to track seat booking of a show as well as the finances from the bookings.
+
+A snapshot of our product is as shown:
