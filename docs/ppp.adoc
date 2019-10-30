@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *Liu Wei Jie Nicholas* -- Project Portfolio for Optix
 
 ## About the project
@@ -7,3 +8,4 @@ We agreed on morphing it into a seat booking cum finance managing system for a v
 Optix, allows users like theatre managers to track seat booking of a show as well as the finances from the bookings.
 
 A snapshot of our product is as shown:
+
