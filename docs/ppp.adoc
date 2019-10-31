@@ -9,7 +9,7 @@ Optix, allows users like theatre managers to track seat booking of a show as wel
 A snapshot of our product is as shown:
 
 image::images/UI.png[width ="600", align="center"]
-Figure 1: The Graphical User Interface for Optix
+*Figure 1: The Graphical User Interface for Optix*
 
 My role was to implement the code for the commands dealing with the `finance` features. The following sections
 further elaborate on my enhancements as well as on my contributions to the user and developer guide.
@@ -63,7 +63,7 @@ link:https://nuscs2113-ay1920s1.github.io/dashboard/#search=NicholasLiu97&sort=g
 1.2 and 1.3 (2 releases) on GitHub.
 ** I was also in charge of ensuring that weekly increments were delivered on time.
 *Enhancements to existing features:
-** Wrote test cases to increase test coverage. 
+** Wrote test cases to increase test coverage.
 * Documentation:
 ** Implemented the layout of the User Guide and Developer Guide on github.
 ** Added further explanations to existing features for further clarification. (Done on google docs)
@@ -88,7 +88,7 @@ provided in addressbook-level3.
 A glimpse of the content page is shown below:
 
 image::images/UG_ContentPage.png[width ="600", align="center"]
-Figure 2: Content page
+*Figure 2: Content page*
 
 By clicking any of the sections in the content page as shown in Figure 2, the User Guide will automatically
 navigate to that section so the user will not have to keep scrolling to search for
@@ -102,16 +102,16 @@ instructions on how to implement the commands. The figures show snippets of the 
 contains the instructions on the finance features I implemented.
 
 image::images/UG_Finance_pt1.png[width ="600", align="center"]
-Figure 3: UG Finance feature pt1
+*Figure 3: UG Finance feature pt1*
 
 image::images/UG_Finance_pt2.png[width ="600", align="center"]
-Figure 4: UG Finance feature pt2
+*Figure 4: UG Finance feature pt2*
 
 image::images/UG_Finance_pt3.png[width ="600", align="center"]
-Figure 5: UG Finance feature pt3
+*Figure 5: UG Finance feature pt3*
 
 image::images/UG_Finance_pt4.png[width ="600", align="center"]
-Figure 6: UG Finance feature pt4
+*Figure 6: UG Finance feature pt4*
 
 As shown in Figures 3 to 4, the instructions for the `view-profit` and `view-monthly` command
 were thoroughly explained. Examples of the use of the commands were also given as shown in
@@ -132,16 +132,16 @@ The following figures contain snippets of the developer guide which explain my i
 finance features.
 
 image::images/DG_Finance_pt1.png[width ="600", align="center"]
-Figure 7: DG Finance feature pt1
+*Figure 7: DG Finance feature pt1*
 
 image::images/DG_Finance_pt2.png[width ="600", align="center"]
-Figure 8: DG Finance feature pt2
+*Figure 8: DG Finance feature pt2*
 
 image::images/DG_Finance_pt3.png[width ="600", align="center"]
-Figure 9: DG Finance feature pt3
+*Figure 9: DG Finance feature pt3*
 
 image::images/DG_Finance_pt4.png[width ="600", align="center"]
-Figure 10: DG Finance feature pt4
+*Figure 10: DG Finance feature pt4*
 
 As shown in Figure 7, I listed the key methods used by the `view-monthly` command. This would
 be essential for other developers as they contain information on how the different classes
