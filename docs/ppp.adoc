@@ -43,12 +43,15 @@ crucial as other features also depend on this data structure which would affect 
 
 . Command to re-assign the seats of customers.
 
+.. What it does: The `re-assign` command allows the user to change the seat booking of a customer to
+another seat.
+
 .. Justification: Customers may have booked the wrong seat or mistakes might be made by the managing personnel
 when booking the seats. The `re-assign` command would also allow customers to upgrade or downgrade their seat
 since the prices of seats are based on the different tiers.
 
 .. Highlights: This enhancement goes hand-in-hand with other features and commands to be added in future. Refunding
-seats would require certain methods implemented by `re-assign` command. In addition, re-assign also implments certain
+seats would require certain methods implemented by `re-assign` command. In addition, re-assign also implements certain
 features of other finance commands as the cost difference between the changed seats have to be accounted for.
 
 ====== *Code contributed*: Please click the link below to see a sample of my code:
@@ -66,7 +69,7 @@ link:https://nuscs2113-ay1920s1.github.io/dashboard/#search=NicholasLiu97&sort=g
 ** Added further explanations to existing features for further clarification. (Done on google docs)
 ** Made cosmetic improvements to the User Guide to make it more user-friendly.
 * Community:
-** Reviewed Pull Requests:
+** Reviewed Pull Requests: #12, #13, #21, #68, #69, #78, #102
 ** Offered suggestions to team members to refactor some parts of the code for tidier
 implementation.
 
