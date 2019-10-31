@@ -9,7 +9,7 @@ Optix, allows users like theatre managers to track seat booking of a show as wel
 A snapshot of our product is as shown:
 
 image::images/UI.png[width ="600", align="center"]
-======  Figure 1: The Graphical User Interface for Optix
+Figure 1: The Graphical User Interface for Optix
 
 My role was to implement the code for the commands dealing with the `finance` features. The following sections
 further elaborate on my enhancements as well as on my contributions to the user and developer guide.
@@ -54,7 +54,7 @@ since the prices of seats are based on the different tiers.
 seats would require certain methods implemented by `re-assign` command. In addition, re-assign also implements certain
 features of other finance commands as the cost difference between the changed seats have to be accounted for.
 
-====== *Code contributed*: Please click the link below to see a sample of my code:
+*Code contributed*: Please click the link below to see a sample of my code:
 link:https://nuscs2113-ay1920s1.github.io/dashboard/#search=NicholasLiu97&sort=groupTitle&sortWithin=title&since=2019-09-21&timeframe=commit&mergegroup=false&groupSelect=groupByRepos&breakdown=false&tabOpen=true&tabType=authorship&tabAuthor=NicholasLiu97&tabRepo=AY1920S1-CS2113T-T12-1%2Fmain%5Bmaster%5D[Functional code]
 
 === Other contributions:
