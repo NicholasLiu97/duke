@@ -63,7 +63,7 @@ link:https://nuscs2113-ay1920s1.github.io/dashboard/#search=NicholasLiu97&sort=g
 1.2 and 1.3 (2 releases) on GitHub.
 ** I was also in charge of ensuring that weekly increments were delivered on time.
 *Enhancements to existing features:
-** Wrote test cases to increase test coverage. (PR to be added)
+** Wrote test cases to increase test coverage. 
 * Documentation:
 ** Implemented the layout of the User Guide and Developer Guide on github.
 ** Added further explanations to existing features for further clarification. (Done on google docs)
